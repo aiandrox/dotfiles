@@ -1,3 +1,7 @@
+# dotfiles
+
+[Homebrew](https://brew.sh/index_ja)
+
 ## エディタ系
 
 https://progriro.net/zsh-prezto/
