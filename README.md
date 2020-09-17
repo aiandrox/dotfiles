@@ -1,3 +1,4 @@
+## エディタ系
 
 https://progriro.net/zsh-prezto/
 
@@ -12,18 +13,31 @@ $ setopt EXTENDED_GLOB
 	   done
 ```
 
-`.zshrc`は置いておいてよい。
+`.zshrc`は置いておいたままでよい。
 
-## brew
+### brew
 
-デフォルトのzshのパスは`/usr/local/bin/zsh`なので、`brew install zsh`
+デフォルトのzshのパスは`/usr/local/bin/zsh`になっている。そのままでもデフォルトでzshがインストールされてはいるんだけど、brewで入れておく。  
+gitも`.zshrc`で`/usr/local/etc/bash_completion.d/git-prompt.sh`を読み込むので、brewでインストールする。
 
-あえてbrewからインストールする
+```
+brew install zsh git peco yarn
+```
 
-`brew install git`
-`brew install peco`
-
-
-`brew install yarn`
-ついでにnodeとかもインストールされる。
+yarnをインストールすると、ついでにnodeとかもインストールされる。  
 `Installing dependencies for yarn: icu4c and node`
+
+`brew install anyenv`でanyenvを入れておく。
+
+## ツール系
+
+### アプリ
+
+- 1password
+- Clipy
+- VScode
+- iTerm2
+- Sequel Pro
+- Google日本語入力
+
+## Chrome拡張
