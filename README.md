@@ -17,3 +17,7 @@ $ setopt EXTENDED_GLOB
 ## zsh
 
 デフォルトのzshのパスは`/usr/local/bin/zsh`なので、`brew install zsh`
+
+あえてbrewからインストールする
+
+`brew install git`
