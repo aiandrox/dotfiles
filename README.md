@@ -22,7 +22,7 @@ $ setopt EXTENDED_GLOB
 ### brew
 
 デフォルトのzshのパスは`/usr/local/bin/zsh`になっている。そのままでもデフォルトでzshがインストールされてはいるんだけど、brewで入れておく。  
-gitも`.zshrc`で`/usr/local/etc/bash_completion.d/git-prompt.sh`を読み込むので、brewでインストールする。
+gitも`.zshrc`で`/usr/local/etc/bash_completion.d/git-prompt.sh`を読み込むので、brewでインストールする（インストールすると自動でこのファイルが作成される）。
 
 ```
 brew install zsh git peco yarn
