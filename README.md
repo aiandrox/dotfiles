@@ -24,4 +24,6 @@ $ setopt EXTENDED_GLOB
 `brew install peco`
 
 
-`npm install -g yarn`
+`brew install yarn`
+ついでにnodeとかもインストールされる。
+`Installing dependencies for yarn: icu4c and node`
