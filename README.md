@@ -13,3 +13,7 @@ $ setopt EXTENDED_GLOB
 ```
 
 `.zshrc`は置いておいてよい。
+
+## zsh
+
+デフォルトのzshのパスは`/usr/local/bin/zsh`なので、`brew install zsh`
