@@ -14,10 +14,14 @@ $ setopt EXTENDED_GLOB
 
 `.zshrc`は置いておいてよい。
 
-## zsh
+## brew
 
 デフォルトのzshのパスは`/usr/local/bin/zsh`なので、`brew install zsh`
 
 あえてbrewからインストールする
 
 `brew install git`
+`brew install peco`
+
+
+`npm install -g yarn`
