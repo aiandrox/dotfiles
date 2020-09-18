@@ -33,6 +33,10 @@ yarnをインストールすると、ついでにnodeとかもインストール
 
 `brew install anyenv`でanyenvを入れておく。
 
+### Git
+
+[Gitを使い始めたら一番最初にやりたい \`git config\`設定メモ](https://blog.katsubemakito.net/git/git-config-1st)
+
 ## ツール系
 
 ### アプリ
