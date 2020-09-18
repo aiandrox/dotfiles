@@ -37,6 +37,7 @@ yarnをインストールすると、ついでにnodeとかもインストール
 
 ### アプリ
 
+- Alfred
 - 1password
 - Clipy
 - VScode
@@ -45,3 +46,8 @@ yarnをインストールすると、ついでにnodeとかもインストール
 - Google日本語入力
 
 ## Chrome拡張
+
+- Octotree
+- Octolinker
+- 1password
+- Create Link
