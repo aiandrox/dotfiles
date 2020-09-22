@@ -17,7 +17,7 @@ $ setopt EXTENDED_GLOB
 	   done
 ```
 
-`.zshrc`は置いておいたままでよい。
+`.zshrc`は対比しておいたほうがいいかも。
 
 ### brew
 
