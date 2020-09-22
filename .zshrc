@@ -36,6 +36,10 @@ function peco-get-destination-from-cdr() {
   peco --query "$LBUFFER"
 }
 
+# cdの後にlsを表示
+setopt auto_cd
+function chpwd() { ls }
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
