@@ -7,7 +7,7 @@
 https://progriro.net/zsh-prezto/
 
 ```
-$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+$ git clone --recursive https://github.com/aiandrox/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 # 以下4行を全てコピーして貼り付け、実行する
 
