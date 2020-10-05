@@ -12,6 +12,8 @@
 	gpgsign = false
 [gpg]
 	program = gpg
-root = ~/src
+	root = ~/src
 [alias]
 	ff = flow feature
+	delete = branch -d
+	difff = diff --word-diff
