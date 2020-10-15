@@ -3,7 +3,21 @@
 source "$(git --exec-path)/git-sh-setup"
 
 USAGE="BACK NUMBER"
+
 function _squash() {
+    if [[ $(git status -z -uno) ]]; then
+        echo "cannot rebase: Your index contains uncommitted changes.\nDo you stash all files? y/n"
+        read input
+        if [ -z $input ] ; then
+            ConfirmExecution
+        elif [ $input = 'y' ] ; then
+            git add .
+            git stash save
+        else
+            exit 1
+        fi
+    fi
+
     if [[ $# == 1 ]]; then
         if [[ -n $(git rev-parse --verify --quiet HEAD~$1) ]]; then
             git rebase -i HEAD~$1
