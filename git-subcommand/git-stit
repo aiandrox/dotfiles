@@ -1,0 +1,43 @@
+#!/bin/sh
+
+source "$(git --exec-path)/git-sh-setup"
+
+USAGE="addしていないものをstashする"
+
+function _stit() {
+  # getoptsでのオプション判定
+  while getopts m: OPT
+  do
+    case $OPT in
+      m) OPT_FLAG_m=1; STASH_MESSAGE=$OPTARG;;
+    esac
+  done
+
+  COMMIT_MESSAGE=`git log -1 --pretty='%s'`
+
+  # オプション部分を切り捨て
+  shift `expr $OPTIND - 1`
+  FILES=$@
+  if [ $FILES ]; then
+    git add .
+    git reset HEAD $FILES
+  fi
+  
+  git commit -m 'left files'
+  
+  COMMIT_FAIL_FLAG=$?
+  
+  if [ $OPT_FLAG_m ]; then
+    git stash save $STASH_MESSAGE
+  else
+    git stash save $COMMIT_MESSAGE
+  fi
+  
+  if [ "$COMMIT_FALI_FLAG = 0" ]; then
+    git reset --soft HEAD~
+  fi
+  
+  git reset HEAD
+}
+
+_stit $@
