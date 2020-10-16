@@ -12,9 +12,9 @@ function _stit() {
       m) OPT_FLAG_m=1; STASH_MESSAGE=$OPTARG;;
     esac
   done
-
+  
   COMMIT_MESSAGE=`git log -1 --pretty='%s'`
-
+  
   # オプション部分を切り捨て
   shift `expr $OPTIND - 1`
   FILES=$@
