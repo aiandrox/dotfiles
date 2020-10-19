@@ -17,7 +17,7 @@ $ setopt EXTENDED_GLOB
 	   done
 ```
 
-`.zshrc`は対比しておいたほうがいいかも。
+`.zshrc`は退避しておいたほうがいいかも。
 
 ### brew
 
@@ -49,10 +49,15 @@ yarnをインストールすると、ついでにnodeとかもインストール
 - iTerm2
 - Sequel Pro
 - Google日本語入力
+- Skitch
+- LibreOffice
 
 ## Chrome拡張
 
 - Octotree
-- Octolinker
 - 1password
 - Create Link
+
+場合によっては
+
+- Emoji Palette
