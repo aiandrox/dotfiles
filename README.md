@@ -32,6 +32,7 @@ yarnをインストールすると、ついでにnodeとかもインストール
 `Installing dependencies for yarn: icu4c and node`
 
 `brew install anyenv`でanyenvを入れておく。
+`brew install hub`
 
 ### Git
 
