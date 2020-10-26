@@ -3,6 +3,8 @@
 source "$(git --exec-path)/git-sh-setup"
 
 USAGE="BACK NUMBER"
+# `git squash` デフォルトはHEAD~5
+# `git squash 3` git rebase -i HEAD~3の意
 
 function _squash() {
     if [[ $(git status -z -uno) ]]; then
