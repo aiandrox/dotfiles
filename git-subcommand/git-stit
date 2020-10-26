@@ -3,6 +3,9 @@
 source "$(git --exec-path)/git-sh-setup"
 
 USAGE="addしていないものをstashする"
+# `git stit` addしていないものをstashする
+# `git stit -m 'stashするときのメッセージ'`
+# ちょっと不具合ありそう
 
 function _stit() {
   # getoptsでのオプション判定
