@@ -2,15 +2,13 @@
 alias be='bundle exec'
 alias bi='bundle install'
 alias rs='bundle exec rails server'
-alias rc='rails console'
-alias mig='bundle exec rails db:migrate'
+alias rc='bundle exec rails console'
+alias rubo='bundle exec rubocop'
+alias sp='bundle exec rspec'
+alias rstop='for x in `lsof -i:3000 | awk '\''{print $2}'\'' | grep -v PID` ; do kill -9 $x ; done'
 
 # git command
 alias g='git'
-alias gca='git commit --amend'
-
-# dockerコンテナに入る。deで実行できる
-alias de='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/bash'
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -36,6 +34,23 @@ function peco-get-destination-from-cdr() {
   peco --query "$LBUFFER"
 }
 
+### 過去に移動したことのあるディレクトリを選択。ctrl-uにバインド
+function peco-cdr() {
+  local destination="$(peco-get-destination-from-cdr)"
+  if [ -n "$destination" ]; then
+    BUFFER="cd $destination"
+    zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N peco-cdr
+bindkey '^u' peco-cdr
+
+# ブランチを簡単切り替え。git switch lbで実行できる
+alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+
+
 # cdの後にlsを表示
 setopt auto_cd
 function chpwd() { ls }
@@ -44,6 +59,13 @@ function chpwd() { ls }
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# 会社の方
+export PATH="$HOME/.anyenv/envs/rbenv/shims/gem:$PATH"
+export PATH="$PATH:`yarn global bin`"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+# privateの方
 export PATH="$HOME/.anyenv/envs/rbenv/shims/gem:$PATH"
 export PATH="$PATH:$HOME/.flutter/flutter/bin"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
