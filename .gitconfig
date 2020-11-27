@@ -18,3 +18,6 @@
         difff = diff --word-diff
         openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1..origin/HEAD | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
         develop = switch develop
+        ca = commit --amend
+        pp = push origin HEAD
+        swi = switch
