@@ -1,0 +1,101 @@
+# Rails Command
+alias be='bundle exec'
+alias bi='bundle install'
+alias rs='bundle exec rails server'
+alias rc='bundle exec rails console'
+alias mig='bundle exec rails db:migrate'
+alias rubo='bundle exec rubocop'
+alias sp='bundle exec rspec'
+
+# git command
+alias g='git'
+
+# rmの退避
+alias rm='set -f; rmrm'
+function rmrm() {
+    local ch
+    echo $@ | grep -Gq "^/$\| /$\|^/ \| / "
+    if [ $? -eq 0 ]; then
+        set +f
+        echo "DONOT execute 'rm /'"
+        return 1
+    fi
+
+    echo $@ | grep -q "*"
+    if [ $? -eq 0 ]; then
+        set +f
+        ls $@
+        if [ $? -ne 0 ]; then
+            return 0
+        fi
+        echo -n "Are you sure? [Y/n] "
+        while : ; do
+            read ch
+            if [ "${ch}" = "Y" ]; then
+                command rm $@
+                return 0
+            elif [ "${ch}" = "n" ] || [ "${ch}" = "N" ]; then
+                return 1
+            else
+                echo -n "[Y/n]"
+            fi
+        done
+    else
+        command rm $@
+        return 0
+    fi
+  }
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# peco settings
+# 過去に実行したコマンドを選択。ctrl-rにバインド
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+# search a destination from cdr list
+function peco-get-destination-from-cdr() {
+  cdr -l | \
+  sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
+  peco --query "$LBUFFER"
+}
+
+### 過去に移動したことのあるディレクトリを選択。ctrl-uにバインド
+function peco-cdr() {
+  local destination="$(peco-get-destination-from-cdr)"
+  if [ -n "$destination" ]; then
+    BUFFER="cd $destination"
+    zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N peco-cdr
+bindkey '^u' peco-cdr
+
+# ブランチを簡単切り替え。git switch lbで実行できる
+alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+
+
+# cdの後にlsを表示
+setopt auto_cd
+function chpwd() { ls }
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+export PATH="$HOME/.anyenv/envs/rbenv/shims/gem:$PATH"
+export PATH="$PATH:`yarn global bin`"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
