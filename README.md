@@ -31,7 +31,10 @@ brew install zsh git peco yarn
 yarnをインストールすると、ついでにnodeとかもインストールされる。  
 `Installing dependencies for yarn: icu4c and node`
 
-`brew install anyenv`でanyenvを入れておく。
+`brew install anyenv`でanyenvを入れておく。  
+ついでにpluginも。  
+[anyenvの\*envたちを一括でアップデートする \- Qiita](https://qiita.com/sawadashota/items/825002d84088c0129c4b)
+
 `brew install hub`
 
 ### Git
