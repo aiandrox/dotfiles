@@ -34,7 +34,7 @@ yarnをインストールすると、ついでにnodeとかもインストール
 `brew install anyenv`でanyenvを入れておく。  
 ついでにpluginも。  
 [anyenvの\*envたちを一括でアップデートする \- Qiita](https://qiita.com/sawadashota/items/825002d84088c0129c4b)
-
+[direnvを使おう \- Qiita](https://qiita.com/kompiro/items/5fc46089247a56243a62)
 `brew install hub`
 
 ### Git
