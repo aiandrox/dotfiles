@@ -22,5 +22,5 @@
 	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1..origin/HEAD | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 	fpull = !git fetch origin `git cbran` && git reset --hard origin/`git cbran`
 	cbran = rev-parse --abbrev-ref HEAD # カレントブランチ名を取得
-	dmb = !git branch --merged | grep -vE '^\\*|master$|develop$|sandbox$' | xargs -I % git branch -d %
+	dmb = !git branch --merged | grep -vE '^\\*|master$|main$|develop$|sandbox$' | xargs -I % git branch -d %
 	back = reset --soft HEAD~
