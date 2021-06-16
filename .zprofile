@@ -1,4 +1,4 @@
-#p100py100y
+#
 # Executes commands at login pre-zshrc.
 #
 # Authors:
