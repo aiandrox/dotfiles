@@ -34,7 +34,7 @@ function peco-get-destination-from-cdr() {
   peco --query "$LBUFFER"
 }
 
-### 過去に移動したことのあるディレクトリを選択。ctrl-uにバインド
+# 過去に移動したことのあるディレクトリを選択。ctrl-uにバインド
 function peco-cdr() {
   local destination="$(peco-get-destination-from-cdr)"
   if [ -n "$destination" ]; then
@@ -50,7 +50,6 @@ bindkey '^u' peco-cdr
 # ブランチを簡単切り替え。git switch lbで実行できる
 alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 
-
 # cdの後にlsを表示
 setopt auto_cd
 function chpwd() { ls }
@@ -59,17 +58,8 @@ function chpwd() { ls }
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
-# 会社の方
-export PATH="$HOME/.anyenv/envs/rbenv/shims/gem:$PATH"
 export PATH="$PATH:`yarn global bin`"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
-# privateの方
-export PATH="$HOME/.anyenv/envs/rbenv/shims/gem:$PATH"
-export PATH="$PATH:$HOME/.flutter/flutter/bin"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH="$PATH:`yarn global bin`"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH=$PATH:$GOPATH/bin # go path
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
+PATH=/usr/local/opt/openssl@1.1/bin:/Users/k_end/.anyenv/envs/rbenv/shims/gem:/Users/k_end/.anyenv/envs/rbenv/shims:/Users/k_end/.anyenv/envs/rbenv/bin:/Users/k_end/.anyenv/envs/nodenv/shims:/Users/k_end/.anyenv/envs/nodenv/bin:/Users/k_end/.anyenv/bin:/usr/local/opt/openssl@1.1/bin:/Users/k_end/.anyenv/envs/rbenv/shims/gem:/Users/k_end/.anyenv/envs/rbenv/shims:/Users/k_end/.anyenv/envs/rbenv/bin:/Users/k_end/.anyenv/envs/nodenv/shims:/Users/k_end/.anyenv/envs/nodenv/bin:/Users/k_end/.anyenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/openssl@1.1/bin:/Users/k_end/.anyenv/envs/rbenv/shims/gem:/Users/k_end/.anyenv/envs/rbenv/shims:/Users/k_end/.anyenv/envs/rbenv/bin:/Users/k_end/.anyenv/envs/nodenv/shims:/Users/k_end/.anyenv/envs/nodenv/bin:/Users/k_end/.anyenv/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:/usr/local/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:/usr/local/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin
