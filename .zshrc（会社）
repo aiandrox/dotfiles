@@ -1,17 +1,21 @@
 # Rails Command
 alias be='bundle exec'
 alias bi='bundle install'
-alias rs='bundle exec rails server'
-alias rc='bundle exec rails console'
-alias mig='bundle exec rails db:migrate'
-alias rubo='bundle exec rubocop'
-alias sp='bundle exec rspec'
+alias rs='./bin/rails server'
+alias rc='./bin/rails console'
+alias rubo='./bin/rubocop -A'
+alias rspec='./bin/rspec'
+alias mig='./bin/rails db:migrate'
 
 # git command
 alias g='git'
 
-# 任意ssh
-alias sshp='ssh $(grep Host ~/.ssh/config | grep -v HostName | cut -d" " -f2 | peco)'
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # rmの退避
 alias rm='set -f; rmrm'
@@ -49,13 +53,6 @@ function rmrm() {
     fi
   }
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # peco settings
 # 過去に実行したコマンドを選択。ctrl-rにバインド
 function peco-select-history() {
@@ -73,7 +70,7 @@ function peco-get-destination-from-cdr() {
   peco --query "$LBUFFER"
 }
 
-### 過去に移動したことのあるディレクトリを選択。ctrl-uにバインド
+# 過去に移動したことのあるディレクトリを選択。ctrl-uにバインド
 function peco-cdr() {
   local destination="$(peco-get-destination-from-cdr)"
   if [ -n "$destination" ]; then
@@ -89,48 +86,11 @@ bindkey '^u' peco-cdr
 # ブランチを簡単切り替え。git switch lbで実行できる
 alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 
-
 # cdの後にlsを表示
 setopt auto_cd
 function chpwd() { ls }
 
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-eval "$(direnv hook zsh)"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
-# pyenvの設定
-export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-export PATH="$HOME/.anyenv/envs/rbenv/shims/gem:$PATH"
-export PATH="$PATH:`yarn global bin`"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="$PATH:$HOME/development/flutter/bin"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/k-endo/.anyenv/envs/pyenv/versions/anaconda3-2019.10/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/k-endo/.anyenv/envs/pyenv/versions/anaconda3-2019.10/etc/profile.d/conda.sh" ]; then
-        . "/Users/k-endo/.anyenv/envs/pyenv/versions/anaconda3-2019.10/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/k-endo/.anyenv/envs/pyenv/versions/anaconda3-2019.10/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/k-endo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/k-endo/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/k-endo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/k-endo/google-cloud-sdk/completion.zsh.inc'; fi
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
