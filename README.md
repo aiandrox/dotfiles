@@ -24,18 +24,10 @@ $ setopt EXTENDED_GLOB
 デフォルトのzshのパスは`/usr/local/bin/zsh`になっている。そのままでもデフォルトでzshがインストールされてはいるんだけど、brewで入れておく。  
 gitも`.zshrc`で`/usr/local/etc/bash_completion.d/git-prompt.sh`を読み込むので、brewでインストールする（インストールすると自動でこのファイルが作成される）。
 
-```
-brew install zsh git peco yarn
+```sh
+brew install zsh git peco hub asdf
 ```
 
-yarnをインストールすると、ついでにnodeとかもインストールされる。  
-`Installing dependencies for yarn: icu4c and node`
-
-`brew install anyenv`でanyenvを入れておく。  
-ついでにpluginも。  
-[anyenvの\*envたちを一括でアップデートする \- Qiita](https://qiita.com/sawadashota/items/825002d84088c0129c4b)
-[direnvを使おう \- Qiita](https://qiita.com/kompiro/items/5fc46089247a56243a62)
-`brew install hub`
 
 ### Git
 
