@@ -9,6 +9,7 @@
 [core]
         excludesfile = /Users/kaoru.endo/.gitignore_global
         editor = vim -c \"set fenc=utf-8\"
+	ignorecase = false
 [gpg]
         program = gpg
         root = ~/src
