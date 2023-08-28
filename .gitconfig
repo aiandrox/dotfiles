@@ -1,18 +1,18 @@
 [user]
-        name = Aiandrox
+	name = aiandrox
         email = aiandrox7@gmail.com
+        signingkey = ssh-ed25519 hogehoge
 [color]
         ui = true
 [help]
         autocorrect = 1
 [core]
-        excludesfile = /Users/k_end/.gitignore_global
+        excludesfile = /Users/kaoru.endo/.gitignore_global
         editor = vim -c \"set fenc=utf-8\"
-[commit]
-        gpgsign = false
 [gpg]
         program = gpg
         root = ~/src
+        format = ssh
 [alias]
 	delete = branch -d
 	dev = switch develop
@@ -24,3 +24,7 @@
 	cbran = rev-parse --abbrev-ref HEAD # カレントブランチ名を取得
 	dmb = !git branch --merged | grep -vE '^\\*|master$|main$|develop$|sandbox$' | xargs -I % git branch -d %
 	back = reset --soft HEAD~
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false
