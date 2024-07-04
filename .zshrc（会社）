@@ -13,12 +13,6 @@ alias com='npm run commit'
 
 alias dc='docker compose'
 
-# Findy
-alias libra='cd ~/findy/Libra'
-alias vana='cd ~/findy/Vanadiel'
-alias matoya='cd ~/findy/Matoya'
-alias xdeath='cd ~/findy/Xdeath'
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
