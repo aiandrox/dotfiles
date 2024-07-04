@@ -108,6 +108,3 @@ export PATH="/Users/kaoru.endo/Library/Python/3.11/bin:$PATH"
 
 # YJIT
 export RUBY_CONFIGURE_OPTS="--enable-yjit"
-
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
